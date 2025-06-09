@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DaisyMo Collective</title>
+  <link rel="icon" href="./WhatsApp Image 2025-06-08 at 19.51.46_eafa8d2b.jpg" type="image/jpeg" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-image: url('/c0825a11a5b68fc521b5c8257068404d.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: #fff;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1em;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 10vh 2em;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4em 2em;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: #fff;
+      color: #000;
+      padding: 2em;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .popup-content input {
+      padding: 0.5em;
+      margin: 0.5em 0;
+      width: 100%;
+    }
+
+    .popup-content button {
+      padding: 0.5em 1em;
+      margin-top: 1em;
+    }
+
+    .close-btn {
+      cursor: pointer;
+      float: right;
+      font-weight: bold;
+    }
+
+    .btns {
+      text-align: center;
+      margin: 2em 0;
+    }
+
+    .btns button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 0.7em 1.5em;
+      margin: 0.5em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 3000;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1ebe5d;
+    }
+
+    #comingSoon {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+      font-size: 2em;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="comingSoon">
+    <div>🚧 Coming Soon 🚧
+        <h2>Join Us as we Launch In...</h2>
+    </div>
+    <div id="countdown"></div>
+    <div class="btns">
+      <button onclick="document.getElementById('newsletterPopup').style.display='flex'">Join Newsletter</button>
+      <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join Waitlist</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <img src="./WhatsApp Image 2025-06-08 at 19.51.46_eafa8d2b.jpg" alt="DaisyMo Collective Logo" />
+      <h2>DaisyMo Collective</h2>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Capturing Moments, Creating Memories</h1>
+    <p>DaisyMo Collective is your trusted partner in modern, soulful photography. Every shot tells a story — let us tell yours.</p>
+  </section>
+
+  <div class="btns">
+    <button onclick="document.getElementById('newsletterPopup').style.display='flex'">Join Newsletter</button>
+    <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join Waitlist</button>
+  </div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      DaisyMo Collective is a photography business passionate about capturing genuine emotions and timeless moments. With years of experience and a modern artistic approach, we ensure each image speaks louder than words.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@daisymocollective.com</p>
+    <p>Location: 10650 County Rd 81, Ste U, Maple Grove, MN 55369</p>
+    <p>Phone: +1 763-209-8807</p>
+    <p>Instagram: <a href="https://www.instagram.com/daisymocollective" target="_blank" style="color: #fff; text-decoration: underline;">@daisymocollective</a></p>
+    <p>Location: <a href="https://maps.app.goo.gl/A1BwVmHZoB11TcyUA" target="_blank" style="color: #fff; text-decoration: underline;">10650 County Road 81, Maple Grove, MN 55369</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 DaisyMo Collective. All rights reserved.
+  </footer>
+
+  <!-- Newsletter Popup -->
+  <div class="popup" id="newsletterPopup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="document.getElementById('newsletterPopup').style.display='none'">&times;</span>
+      <h3>Join Our Newsletter</h3>
+      <p><a href="https://forms.gle/your-google-form-link" target="_blank">Click here to join our email list</a></p>
+    </div>
+  </div>
+
+  <!-- Waitlist Popup -->
+  <div class="popup" id="waitlistPopup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="document.getElementById('waitlistPopup').style.display='none'">&times;</span>
+      <h3>Join Our Waitlist</h3>
+      <p><a href="https://forms.gle/your-google-form-link" target="_blank">Click here to fill our waitlist form</a></p>
+    </div>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/17632098807" target="_blank">
+    <button class="whatsapp-button">💬</button>
+  </a>
+
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date("July 13, 2025 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdownEl.innerHTML = "We Have Launched!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
