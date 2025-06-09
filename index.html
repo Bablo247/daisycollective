@@ -6,6 +6,10 @@
   <title>DaisyMo Collective</title>
   <link rel="icon" href="./WhatsApp Image 2025-06-08 at 19.51.46_eafa8d2b.jpg" type="image/jpeg" />
   <style>
+    :root {
+      --main-color: #fff;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -18,31 +22,37 @@
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
-      color: #fff;
+      color: var(--main-color);
     }
 
     header {
       background: rgba(0, 0, 0, 0.7);
       padding: 1em 2em;
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
       display: flex;
       align-items: center;
+      gap: 0.5em;
     }
 
     .logo img {
       height: 50px;
-      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
     }
 
     nav a {
-      color: #fff;
+      color: var(--main-color);
       text-decoration: none;
-      margin: 0 1em;
       font-weight: bold;
     }
 
@@ -102,17 +112,6 @@
       text-align: center;
     }
 
-    .popup-content input {
-      padding: 0.5em;
-      margin: 0.5em 0;
-      width: 100%;
-    }
-
-    .popup-content button {
-      padding: 0.5em 1em;
-      margin-top: 1em;
-    }
-
     .close-btn {
       cursor: pointer;
       float: right;
@@ -132,6 +131,7 @@
       margin: 0.5em;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1em;
     }
 
     .whatsapp-button {
@@ -159,16 +159,25 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
       z-index: 2000;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      color: #fff;
+      color: var(--main-color);
       text-align: center;
-      font-size: 2em;
+      padding: 2em;
       animation: fadeIn 2s ease-out;
+    }
+
+    #comingSoon::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(-45deg, #111, #333, #111, #000);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      z-index: -1;
     }
 
     @keyframes fadeIn {
@@ -176,31 +185,54 @@
       to { opacity: 1; }
     }
 
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #comingSoon h1,
+    #comingSoon h2,
+    #comingSoon h3,
+    #comingSoon h5 {
+      margin: 0.5em 0;
+    }
+
     #countdown {
       font-size: 1.5em;
-      margin-top: 20px;
+      margin-top: 1em;
     }
 
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2em;
       }
+
       .hero p {
         font-size: 1em;
+      }
+
+      #comingSoon h1 {
+        font-size: 2em;
+      }
+
+      #comingSoon h3, #comingSoon h2 {
+        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
+
   <div id="comingSoon">
-    <div>🚧 Coming Soon 🚧
-        <h2>Join Us as we Launch In...</h2>
-    </div>
+    <h1>A New Creative Space is Coming to Maple Grove</h1> 
+    <h3>Photography, content creation, and community — all under one roof.</h3>
+    <h2>Opening July 13, 2025</h2>
     <div id="countdown"></div>
     <div class="btns">
-      <button onclick="document.getElementById('newsletterPopup').style.display='flex'">Join Newsletter</button>
-      <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join Waitlist</button>
+      <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join the Waitlist / Get Launch Updates</button>
     </div>
+    <h5>Shoot. Create. Connect.</h5>
   </div>
 
   <header>
@@ -210,7 +242,7 @@
     </div>
     <nav>
       <a href="#">Home</a>
-      <a href="#">About Us</a>
+      <a href="#about">About Us</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -221,15 +253,12 @@
   </section>
 
   <div class="btns">
-    <button onclick="document.getElementById('newsletterPopup').style.display='flex'">Join Newsletter</button>
     <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join Waitlist</button>
   </div>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>
-      DaisyMo Collective is a photography business passionate about capturing genuine emotions and timeless moments. With years of experience and a modern artistic approach, we ensure each image speaks louder than words.
-    </p>
+    <p>DaisyMo Collective was built for creators who needed more than a rental space. We’re here to inspire collaboration, community, and creative confidence — whether you’re shooting a brand campaign or hosting a workshop.</p>
   </section>
 
   <section id="contact">
@@ -238,28 +267,19 @@
     <p>Location: 10650 County Rd 81, Ste U, Maple Grove, MN 55369</p>
     <p>Phone: +1 763-209-8807</p>
     <p>Instagram: <a href="https://www.instagram.com/daisymocollective" target="_blank" style="color: #fff; text-decoration: underline;">@daisymocollective</a></p>
-    <p>Location: <a href="https://maps.app.goo.gl/A1BwVmHZoB11TcyUA" target="_blank" style="color: #fff; text-decoration: underline;">10650 County Road 81, Maple Grove, MN 55369</a></p>
+    <p>Map: <a href="https://maps.app.goo.gl/A1BwVmHZoB11TcyUA" target="_blank" style="color: #fff; text-decoration: underline;">View on Google Maps</a></p>
   </section>
 
   <footer>
     &copy; 2025 DaisyMo Collective. All rights reserved.
   </footer>
 
-  <!-- Newsletter Popup -->
-  <div class="popup" id="newsletterPopup">
-    <div class="popup-content">
-      <span class="close-btn" onclick="document.getElementById('newsletterPopup').style.display='none'">&times;</span>
-      <h3>Join Our Newsletter</h3>
-      <p><a href="https://forms.gle/your-google-form-link" target="_blank">Click here to join our email list</a></p>
-    </div>
-  </div>
-
   <!-- Waitlist Popup -->
   <div class="popup" id="waitlistPopup">
     <div class="popup-content">
       <span class="close-btn" onclick="document.getElementById('waitlistPopup').style.display='none'">&times;</span>
-      <h3>Join Our Waitlist</h3>
-      <p><a href="https://forms.gle/your-google-form-link" target="_blank">Click here to fill our waitlist form</a></p>
+      <!--<h3>Join Our Waitlist</h3>-->
+      <div style="text-align: left" class="sender-form-field" data-sender-form-id="eZ6vqJ"></div>
     </div>
   </div>
 
@@ -268,6 +288,7 @@
     <button class="whatsapp-button">💬</button>
   </a>
 
+  <!-- Countdown Timer -->
   <script>
     const countdownEl = document.getElementById('countdown');
     const targetDate = new Date("July 13, 2025 00:00:00").getTime();
@@ -289,5 +310,22 @@
       }
     }, 1000);
   </script>
+
+  <!-- Sender.net Form Script -->
+  <script>
+    (function (s, e, n, d, er) {
+      s['Sender'] = er;
+      s[er] = s[er] || function () {
+        (s[er].q = s[er].q || []).push(arguments)
+      }, s[er].l = 1 * new Date();
+      var a = e.createElement(n),
+          m = e.getElementsByTagName(n)[0];
+      a.async = 1;
+      a.src = d;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+    sender('44683d68b34204');
+  </script>
+
 </body>
 </html>
