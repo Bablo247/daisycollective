@@ -1,299 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DaisyMo Collective</title>
-  <link rel="icon" href="./WhatsApp Image 2025-06-08 at 19.51.46_eafa8d2b.jpg" type="image/jpeg" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>daisyMo Collective – Coming Soon</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Alive is launching soon. Stay updated and be the first to know when we go live." />
+  <meta name="keywords" content="Alive, Coming Soon, Launch, Website Launch, Notify Me, New Website" />
+  <meta name="author" content="Alive Team" />
+  <meta property="og:title" content="Alive - Coming Soon" />
+  <meta property="og:description" content="We’re almost there. Sign up and be the first to know when Alive goes live!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="your-thumbnail.jpg" />
+  <meta property="og:url" content="https://yourdomain.com" />
+
+  <!-- Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics (replace YOUR-GA-ID with your actual GA4 ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'YOUR-GA-ID');
+    </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
-    :root {
-      --main-color: #fff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     body {
-      background-image: url('/c0825a11a5b68fc521b5c8257068404d.jpg');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: var(--main-color);
-    }
-
-    header {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1em 2em;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #000;
+      overflow: hidden;
     }
-
-    .logo img {
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      padding: 3rem 2rem;
+      color: #fff;
+      border-radius: 10px;
+      z-index: 1;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      z-index: 0;
+    }
+    .background-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .logo-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1;
+      margin-bottom: 2rem;
+      font-family: 'Great Vibes', cursive;
+    }
+    .logo-bar img {
       height: 50px;
     }
-
-    nav {
+    .logo-bar h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    .launch-info {
+      text-align: center;
+      z-index: 1;
+      margin-bottom: 3rem;
+    }
+    .launch-info h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .launch-info p {
+      color: #fbbf24;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+    .bottom-bar {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 1em;
+      margin-top: 3rem;
     }
-
-    nav a {
-      color: var(--main-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 10vh 2em;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    section {
-      padding: 4em 2em;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 1em;
-      font-size: 0.9em;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      z-index: 3000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-content {
-      background: #fff;
-      color: #000;
-      padding: 2em;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-    }
-
-    .close-btn {
-      cursor: pointer;
-      float: right;
-      font-weight: bold;
-    }
-
-    .btns {
-      text-align: center;
-      margin: 2em 0;
-    }
-
-    .btns button {
-      background: #fff;
-      color: #000;
-      border: none;
-      padding: 0.7em 1.5em;
-      margin: 0.5em;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1em;
-    }
-
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      z-index: 3000;
-    }
-
-    .whatsapp-button:hover {
-      background-color: #1ebe5d;
-    }
-
-    #comingSoon {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2000;
+    .countdown {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: var(--main-color);
+      gap: 1.5rem;
+    }
+    .countdown-box {
       text-align: center;
-      padding: 2em;
-      animation: fadeIn 2s ease-out;
     }
-
-    #comingSoon::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(-45deg, #111, #333, #111, #000);
-      background-size: 400% 400%;
-      animation: gradientFlow 15s ease infinite;
-      z-index: -1;
+    .countdown-number {
+      font-size: 2rem;
+      font-weight: bold;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .countdown-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #d1d5db;
     }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .socials {
+      display: flex;
+      gap: 1rem;
     }
-
-    #comingSoon h1,
-    #comingSoon h2,
-    #comingSoon h3,
-    #comingSoon h5 {
-      margin: 0.5em 0;
+    .socials a {
+      color: #fff;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
-
-    #countdown {
-      font-size: 1.5em;
-      margin-top: 1em;
+    .socials a:hover {
+      color: #fbbf24;
     }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-
-      .hero p {
-        font-size: 1em;
-      }
-
-      #comingSoon h1 {
-        font-size: 2em;
-      }
-
-      #comingSoon h3, #comingSoon h2 {
-        font-size: 1.2em;
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #d1d5db;
+      text-align: center;
+    }
+    .footer p {
+      margin: 0.25rem 0;
+    }
+    .footer a {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .bottom-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
       }
     }
   </style>
 </head>
 <body>
+  <video class="background-video" autoplay muted loop playsinline>
+    <source src="./231685.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-  <div id="comingSoon">
-    <h1>A New Creative Space is Coming to Maple Grove</h1> 
-    <h3>Photography, content creation, and community — all under one roof.</h3>
-    <h2>Opening July 13, 2025</h2>
-    <div id="countdown"></div>
-    <div class="btns">
-      <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join the Waitlist / Get Launch Updates</button>
+  <div class="container relative">
+    <div class="overlay"></div>
+
+    <div class="logo-bar relative z-10">
+      <img src="logo.jpg" alt="daisyMo logo" />
+      <h1>DaisyMo Collective</h1>
     </div>
-    <h5>Shoot. Create. Connect.</h5>
-  </div>
 
-  <header>
-    <div class="logo">
-      <img src="./WhatsApp Image 2025-06-08 at 19.51.46_eafa8d2b.jpg" alt="DaisyMo Collective Logo" />
-      <h2>DaisyMo Collective</h2>
+    <div class="launch-info relative z-10">
+      <h2>We're Coming Soon</h2>
+      <p>Launching 13th July 2025</p>
     </div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>Capturing Moments, Creating Memories</h1>
-    <p>DaisyMo Collective is your trusted partner in modern, soulful photography. Every shot tells a story — let us tell yours.</p>
-  </section>
+    <div class="bottom-bar relative z-10">
+      <div class="countdown" id="countdown">
+        <div class="countdown-box">
+          <div class="countdown-number" id="days">--</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="hours">--</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="minutes">--</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="seconds">--</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
 
-  <div class="btns">
-    <button onclick="document.getElementById('waitlistPopup').style.display='flex'">Join Waitlist</button>
-  </div>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f" aria-label="Facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in" aria-label="LinkedIn"></i></a>
+        <a href="https://wa.me/17632098807"><i class="fab fa-whatsapp" aria-label="WhatsApp"></i></a>
+      </div>
+    </div>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>DaisyMo Collective was built for creators who needed more than a rental space. We’re here to inspire collaboration, community, and creative confidence — whether you’re shooting a brand campaign or hosting a workshop.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@daisymocollective.com</p>
-    <p>Location: 10650 County Rd 81, Ste U, Maple Grove, MN 55369</p>
-    <p>Phone: +1 763-209-8807</p>
-    <p>Instagram: <a href="https://www.instagram.com/daisymocollective" target="_blank" style="color: #fff; text-decoration: underline;">@daisymocollective</a></p>
-    <p>Map: <a href="https://maps.app.goo.gl/A1BwVmHZoB11TcyUA" target="_blank" style="color: #fff; text-decoration: underline;">View on Google Maps</a></p>
-  </section>
-
-  <footer>
-    &copy; 2025 DaisyMo Collective. All rights reserved.
-  </footer>
-
-  <!-- Waitlist Popup -->
-  <div class="popup" id="waitlistPopup">
-    <div class="popup-content">
-      <span class="close-btn" onclick="document.getElementById('waitlistPopup').style.display='none'">&times;</span>
-      <!--<h3>Join Our Waitlist</h3>-->
-      <div style="text-align: left" class="sender-form-field" data-sender-form-id="eZ6vqJ"></div>
+    <div class="footer relative z-10">
+      <p>📍<a href ="https://maps.app.goo.gl/A1BwVmHZoB11TcyUA"> 10650 county Rd 81, Ste U, Maple Grove, MN 55369</a></p>
+      <p>📧 <a href="mailto:info@daisymocollective.com">info@daisymocollective.com</a></p> | <p></p><a href="https://wa.me/17632098807"></a>☎ 763 209 8807</p>
+      <p>© 2025 daisyMo Collective. All rights reserved.</p>
     </div>
   </div>
 
-  <!-- WhatsApp Button -->
-  <a href="https://wa.me/17632098807" target="_blank">
-    <button class="whatsapp-button">💬</button>
-  </a>
-
-  <!-- Countdown Timer -->
   <script>
-    const countdownEl = document.getElementById('countdown');
     const targetDate = new Date("July 13, 2025 00:00:00").getTime();
 
-    const timer = setInterval(() => {
+    const countdown = () => {
       const now = new Date().getTime();
       const distance = targetDate - now;
 
@@ -302,30 +219,14 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    };
 
-      if (distance < 0) {
-        clearInterval(timer);
-        countdownEl.innerHTML = "We Have Launched!";
-      }
-    }, 1000);
+    countdown();
+    setInterval(countdown, 1000);
   </script>
-
-  <!-- Sender.net Form Script -->
-  <script>
-    (function (s, e, n, d, er) {
-      s['Sender'] = er;
-      s[er] = s[er] || function () {
-        (s[er].q = s[er].q || []).push(arguments)
-      }, s[er].l = 1 * new Date();
-      var a = e.createElement(n),
-          m = e.getElementsByTagName(n)[0];
-      a.async = 1;
-      a.src = d;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
-    sender('44683d68b34204');
-  </script>
-
 </body>
 </html>
